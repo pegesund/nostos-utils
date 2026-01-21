@@ -31,20 +31,16 @@ pub strContains(s: String, sub: String) -> Bool =
   else if s.take(sub.length()) == sub then true
   else strContains(s.drop(1), sub)
 
-# Count occurrences of a character in a string
-pub countChar(s: String, c: String) -> Int = 
-  s.toList().filter(x => x == c).length()
-
 # Check if string is empty or whitespace only
 pub isBlank(s: String) -> Bool = 
   s.trim() == ""
 
 # Reverse a string
 pub reverseStr(s: String) -> String = 
-  s.toList().reverse().join("")
+  s.split("").reverse().join("")
 
-# Convert to uppercase (ASCII only)
+# Convert to uppercase
 pub toUpper(s: String) -> String = s.toUpperCase()
 
-# Convert to lowercase (ASCII only)
+# Convert to lowercase
 pub toLower(s: String) -> String = s.toLowerCase()
