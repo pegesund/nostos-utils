@@ -35,10 +35,6 @@ pub strContains(s: String, sub: String) -> Bool =
 pub isBlank(s: String) -> Bool = 
   s.trim() == ""
 
-# Reverse a string
-pub reverseStr(s: String) -> String = 
-  s.split("").reverse().join("")
-
 # Convert to uppercase
 pub toUpper(s: String) -> String = s.toUpperCase()
 
