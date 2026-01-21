@@ -1,50 +1,50 @@
 # String utilities for Nostos
 
 # Repeat a string n times
-pub repeat(s: String, n: Int): String = 
+pub repeat(s: String, n: Int) -> String = 
   if n <= 0 then ""
   else s ++ repeat(s, n - 1)
 
 # Pad a string on the left to reach target length
-pub padLeft(s: String, len: Int, pad: String): String = 
+pub padLeft(s: String, len: Int, pad: String) -> String = 
   if s.length() >= len then s
   else padLeft(pad ++ s, len, pad)
 
 # Pad a string on the right to reach target length
-pub padRight(s: String, len: Int, pad: String): String = 
+pub padRight(s: String, len: Int, pad: String) -> String = 
   if s.length() >= len then s
   else padRight(s ++ pad, len, pad)
 
 # Check if string starts with prefix
-pub startsWith(s: String, prefix: String): Bool = 
+pub startsWith(s: String, prefix: String) -> Bool = 
   if prefix.length() > s.length() then false
   else s.take(prefix.length()) == prefix
 
 # Check if string ends with suffix
-pub endsWith(s: String, suffix: String): Bool = 
+pub endsWith(s: String, suffix: String) -> Bool = 
   if suffix.length() > s.length() then false
   else s.drop(s.length() - suffix.length()) == suffix
 
 # Check if string contains substring
-pub contains(s: String, sub: String): Bool = 
+pub contains(s: String, sub: String) -> Bool = 
   if sub.length() > s.length() then false
   else if s.take(sub.length()) == sub then true
   else contains(s.drop(1), sub)
 
 # Count occurrences of a character in a string
-pub countChar(s: String, c: String): Int = 
+pub countChar(s: String, c: String) -> Int = 
   s.toList().filter(x => x == c).length()
 
 # Check if string is empty or whitespace only
-pub isBlank(s: String): Bool = 
+pub isBlank(s: String) -> Bool = 
   s.trim() == ""
 
 # Reverse a string
-pub reverseStr(s: String): String = 
+pub reverseStr(s: String) -> String = 
   s.toList().reverse().join("")
 
 # Convert to uppercase (ASCII only)
-pub toUpper(s: String): String = s.toUpperCase()
+pub toUpper(s: String) -> String = s.toUpperCase()
 
 # Convert to lowercase (ASCII only)
-pub toLower(s: String): String = s.toLowerCase()
+pub toLower(s: String) -> String = s.toLowerCase()
