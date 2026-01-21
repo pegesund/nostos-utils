@@ -6,9 +6,6 @@ pub clamp(x: Int, min: Int, max: Int) -> Int =
   else if x > max then max
   else x
 
-# Absolute value
-pub intAbs(x: Int) -> Int = if x < 0 then -x else x
-
 # Sign of a number: -1, 0, or 1
 pub sign(x: Int) -> Int = 
   if x < 0 then -1
@@ -23,7 +20,7 @@ pub isOdd(x: Int) -> Bool = x % 2 != 0
 
 # Greatest common divisor (Euclidean algorithm)
 pub gcd(a: Int, b: Int) -> Int = 
-  if b == 0 then intAbs(a)
+  if b == 0 then abs(a)
   else gcd(b, a % b)
 
 # Least common multiple
@@ -31,7 +28,7 @@ pub lcm(a: Int, b: Int) -> Int =
   if a == 0 || b == 0 then 0
   else abs(a * b) / gcd(a, b)
 
-# Fibonacci (recursive, for demo purposes)
+# Fibonacci (recursive)
 pub fib(n: Int) -> Int = 
   if n <= 1 then n
   else fib(n - 1) + fib(n - 2)
@@ -40,30 +37,3 @@ pub fib(n: Int) -> Int =
 pub factorial(n: Int) -> Int = 
   if n <= 1 then 1
   else n * factorial(n - 1)
-
-# Power function (integer exponent)
-pub intPow(base: Int, exp: Int) -> Int = 
-  if exp == 0 then 1
-  else if exp < 0 then 0
-  else base * intPow(base, exp - 1)
-
-# Sum of a list
-pub sum(xs: List[Int]) -> Int = xs.foldLeft(0, (acc, x) => acc + x)
-
-# Product of a list
-pub product(xs: List[Int]) -> Int = xs.foldLeft(1, (acc, x) => acc * x)
-
-# Average (returns 0 for empty list)
-pub average(xs: List[Int]) -> Int = 
-  if xs.isEmpty() then 0
-  else sum(xs) / xs.length()
-
-# Minimum of a list (returns 0 for empty list)
-pub minimum(xs: List[Int]) -> Int = 
-  if xs.isEmpty() then 0
-  else xs.foldLeft(xs.head(), (acc, x) => if x < acc then x else acc)
-
-# Maximum of a list (returns 0 for empty list)
-pub maximum(xs: List[Int]) -> Int = 
-  if xs.isEmpty() then 0
-  else xs.foldLeft(xs.head(), (acc, x) => if x > acc then x else acc)
