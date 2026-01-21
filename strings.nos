@@ -26,10 +26,10 @@ pub endsWith(s: String, suffix: String) -> Bool =
   else s.drop(s.length() - suffix.length()) == suffix
 
 # Check if string contains substring
-pub contains(s: String, sub: String) -> Bool = 
+pub strContains(s: String, sub: String) -> Bool = 
   if sub.length() > s.length() then false
   else if s.take(sub.length()) == sub then true
-  else contains(s.drop(1), sub)
+  else strContains(s.drop(1), sub)
 
 # Count occurrences of a character in a string
 pub countChar(s: String, c: String) -> Int = 
