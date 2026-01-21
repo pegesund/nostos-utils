@@ -34,9 +34,3 @@ pub strContains(s: String, sub: String) -> Bool =
 # Check if string is empty or whitespace only
 pub isBlank(s: String) -> Bool = 
   s.trim() == ""
-
-# Convert to uppercase
-pub toUpper(s: String) -> String = s.toUpperCase()
-
-# Convert to lowercase
-pub toLower(s: String) -> String = s.toLowerCase()
